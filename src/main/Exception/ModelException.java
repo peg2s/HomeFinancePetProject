@@ -2,7 +2,7 @@ package main.Exception;
 
 import settings.Text;
 
-public class ModelException {
+public class ModelException extends Exception{
     private final int code;
     public static final int TITLE_EMPTY = 1;
     public static final int IS_EXISTS = 2;

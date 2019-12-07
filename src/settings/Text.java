@@ -44,8 +44,19 @@ final public class Text {
         data.put("NOVEMBER","ноябрь");
         data.put("DECEMBER","декабрь");
 
+
+        data.put("ERROR_TITLE_EMPTY","Введите заголовок");
+        data.put("ERROR_IS_EXISTS","Данная статья уже существует");
+        data.put("ERROR_DATE_FORMAT","Ошибка формата даты");
+        data.put("ERROR_CODE_EMPTY","Введите код валюты");
+        data.put("ERROR_CURRENCY_EMPTY","Выберите базовую валюту");
+        data.put("ERROR_ARTICLE_EMPTY","Статья пуста");
+        data.put("ERROR_ACCOUNT_EMPTY","Введите счет");
+        data.put("ERROR_RATE_INCORRECT","Неверный курс");
+        data.put("ERROR_NO_BASE_CURRENCY","Не выбрана базовая валюта");
+        data.put("ERROR_AMOUNT_FORMAT","Ошибка формата суммы");
+
     }
 
 
 }
-

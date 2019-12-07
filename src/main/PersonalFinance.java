@@ -8,12 +8,18 @@ import java.io.IOException;
 
 public class PersonalFinance {
     public static void main(String[] args) {
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void init() throws IOException, FontFormatException {
         Text.init();
-        GraphicsEnvironment ge = new GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("/17498.ttf")));
     }
 
