@@ -2,6 +2,7 @@ package model;
 
 import main.Exception.ModelException;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Account extends Common {
@@ -17,6 +18,7 @@ public class Account extends Common {
     public Account(String title, Currency currency, double startAmount) throws ModelException{
         if (title.length() == 0) throw new ModelException(ModelException.TITLE_EMPTY);
         else if (currency == null) throw new ModelException(ModelException.CURRENCY_EMPTY);
+
         this.title = title;
         this.currency = currency;
         this.startAmount = startAmount;
@@ -69,7 +71,21 @@ public class Account extends Common {
         return title;
     }
 
-    public void setAmountFromTransactionsAndTransfers() {
+    public void setAmountFromTransactionsAndTransfers(List<Transaction> transactions, List<Transfer> transfers) {
+this.amount = startAmount;
+for (Transaction transaction : transactions) {
+    if (transaction.getAccount().equals(this)) {
+        this.amount += transaction.getAmount();
+    }
+}
 
+        for (Transfer transfer : transfers) {
+            if (transfer.getFromAccount().equals(this)) {
+                this.amount -= transfer.getFromAmount();
+            }
+            if (transfer.getToAccount().equals(this)) {
+                this.amount += transfer.getToAmount();
+            }
+        }
     }
 }
